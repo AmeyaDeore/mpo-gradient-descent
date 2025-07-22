@@ -36,6 +36,8 @@ src/
 This project was developed by:
 * <a href="https://www.linkedin.com/in/christian-oliva-moya-ingeniero/">Christian Oliva Moya</a>
 * <a href="https://www.linkedin.com/in/pedro-ramon-ventura-gomez/">Pedro Ramón Ventura Gómez</a>
+* <a href="https://www.linkedin.com/in/luis-lago-50910117a/">Luis Lago Fernández</a>
+ 
 
 ## License
 This project is licensed under the MIT License. See the `LICENSE` file for details.
