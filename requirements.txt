@@ -1,0 +1,28 @@
+# NOTE: Create venv using Python version 3.10.6
+#
+# uv python install cpython-3.10.6-windows-x86_64-none
+# uv python pin cpython-3.10.6-windows-x86_64-none
+# uv venv
+# .venv\Scripts\activate
+# uv pip install -r requirements.txt
+
+cvxpy[gurobi,xpress]==1.6.0
+ipykernel==6.29.5
+nbconvert==7.16.5
+matplotlib==3.10.0
+missingno==0.5.2
+nbformat==5.10.4
+numpy==1.26.4
+pandas==2.2.3
+plotly==5.24.1
+pydantic==2.10.5
+scikit-learn==1.6.1
+seaborn==0.13.2
+statsmodels==0.14.4
+tensorflow==2.10.1
+tensorflow-addons==0.22.0
+tensorflow-probability===0.18.0
+tqdm==4.67.1
+yfinance==0.2.40
+skfolio==0.7.0
+riskfolio-lib==6.3.1
