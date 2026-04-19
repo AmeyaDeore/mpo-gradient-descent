@@ -4,6 +4,7 @@ import pandas as pd
 from typing import Dict, Any
 import sys
 from pathlib import Path
+import tensorflow_probability as tfp
 
 # Import existing modules
 sys.path.insert(0, str(Path(__file__).parent))
@@ -45,8 +46,6 @@ class OptimizationEngine:
         Loss: -Sharpe + λ*constraints
         """
         def loss_function(assets_rets, w, idx=None):
-            import tensorflow_probability as tfp
-            
             # Portfolio return (annualized)
             port_rets = tf.linalg.matmul(assets_rets, w)
             port_return = tf.reduce_mean(port_rets) * 252.0
@@ -95,7 +94,6 @@ class OptimizationEngine:
         """
         def loss_function(assets_rets, w, idx=None):
             """Compute loss for CVaR minimization."""
-            import tensorflow_probability as tfp
             
             # Portfolio returns
             port_rets = tf.linalg.matmul(assets_rets, w)

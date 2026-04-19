@@ -99,9 +99,9 @@ def main():
 
     # Load data
     try:
-        st.info("📥 Loading market data...")
-        data_loader = get_data_loader()
-        returns_df = data_loader.load_and_prepare_data(selected_tickers)
+        with st.spinner("📥 Loading market data..."):
+            data_loader = get_data_loader()
+            returns_df = data_loader.load_and_prepare_data(selected_tickers)
         UIComponents.render_data_preview(returns_df)
     except Exception as e:
         st.error(f"Error loading data: {str(e)}")

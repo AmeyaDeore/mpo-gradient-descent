@@ -22,6 +22,7 @@ statsmodels==0.14.4
 tensorflow>=2.10.1
 tensorflow-addons
 tensorflow-probability
+tf-keras
 tqdm==4.67.1
 yfinance==0.2.40
 skfolio==0.7.0
