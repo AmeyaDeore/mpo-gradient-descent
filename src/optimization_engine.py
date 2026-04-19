@@ -101,7 +101,7 @@ class OptimizationEngine:
             # CVaR (95% confidence level)
             confidence_level = 0.95
             alpha = (1.0 - confidence_level) * 100.0
-            cvar_threshold = tfp.stats.percentile(port_rets, alpha)[0]
+            cvar_threshold = tfp.stats.percentile(port_rets, alpha)
 
             # Losses exceeding threshold
             excess_losses = tf.where(
@@ -142,13 +142,12 @@ class OptimizationEngine:
         """
         def loss_function(assets_rets, w, idx=None):
             """Compute loss with UCITS constraints."""
-            import tensorflow_probability as tfp
             
             # CVaR calculation
             port_rets = tf.linalg.matmul(assets_rets, w)
             confidence_level = 0.95
             alpha = (1.0 - confidence_level) * 100.0
-            cvar_threshold = tfp.stats.percentile(port_rets, alpha)[0]
+            cvar_threshold = tfp.stats.percentile(port_rets, alpha)
             excess_losses = tf.where(
                 port_rets < cvar_threshold,
                 cvar_threshold - port_rets,
