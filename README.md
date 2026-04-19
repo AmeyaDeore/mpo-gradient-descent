@@ -1,12 +1,12 @@
 # Multi-Objective Portfolio Optimization (MPO) with Gradient Descent
 
-🎯 **A Real-Time Interactive Portfolio Optimization Platform**
+**A Real-Time Interactive Portfolio Optimization Platform**
 
 This project implements an advanced portfolio optimization engine using **TensorFlow-driven Gradient Descent**. It allows users to dynamically balance risk and return through a premium web interface, leveraging modern financial mathematics and machine learning optimization techniques.
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
 - **Interactive Ticker Selection**: Choose up to 20 stocks from the S&P 500 for real-time analysis.
 - **Dynamic Risk Aversion**: Adjust the $\lambda$ parameter via a slider to control the trade-off between expected returns and portfolio variance.
@@ -23,7 +23,7 @@ This project implements an advanced portfolio optimization engine using **Tensor
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 - **Presentation**: [Streamlit](https://streamlit.io/) (Premium Dark Theme)
 - **Engine**: [TensorFlow 2.10](https://www.tensorflow.org/) (Gradient Tape for custom loss optimization)
@@ -33,7 +33,7 @@ This project implements an advanced portfolio optimization engine using **Tensor
 
 ---
 
-## ⚙️ Installation & Setup
+## Installation & Setup
 
 This project requires **Python 3.10.6** for compatibility with TensorFlow 2.10. We recommend using `uv` for fast, reproducible environment management.
 
@@ -60,7 +60,7 @@ uv pip install tf-keras  # Required for modern TF compatibility
 
 ---
 
-## 🏃 How to Run the App
+## How to Run the App
 
 Once the environment is set up and activated, start the Streamlit server:
 
@@ -78,7 +78,7 @@ The app will be available at [http://localhost:8501](http://localhost:8501).
 
 ---
 
-## 🧠 Architecture Overview
+## Architecture Overview
 
 The system follows a **Three-Layer Architecture**:
 
@@ -86,14 +86,14 @@ The system follows a **Three-Layer Architecture**:
 2.  **Logic Layer (`src/optimization_engine.py` & `src/models.py`)**: Implements the TensorFlow `MPOModel`. It uses a `GradientTape` to compute gradients of custom financial loss functions (Sharpe, CVaR) with respect to portfolio weights, optimizing them via the Adam optimizer.
 3.  **Data Layer (`src/data_loader.py`)**: Loads S&P 500 historical data from local CSV files, calculates log returns, and prepares tensors for the engine.
 
-### 🧮 Custom Loss Functions
+### Custom Loss Functions
 The engine minimizes a composite loss:
 $$L = -f_{\text{objective}}(w) + \lambda \cdot P(w)$$
 Where $f$ is the target metric (e.g., Sharpe), $\lambda$ is the risk aversion, and $P(w)$ contains penalties for constraints like sparsity or UCITS limits.
 
 ---
 
-## 🧪 Testing & Verification
+## Testing & Verification
 A test suite is available to verify data loading and optimization logic:
 ```powershell
 python test_streamlit_app.py
@@ -101,6 +101,6 @@ python test_streamlit_app.py
 
 ---
 
-## 📄 License
+## License
 This project is licensed under the MIT License - see the LICENSE file for details.
 

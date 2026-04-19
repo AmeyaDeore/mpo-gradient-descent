@@ -11,7 +11,6 @@ class UIComponents:
         """Render application header."""
         st.set_page_config(
             page_title="Portfolio Optimizer",
-            page_icon="https://cdn-icons-png.flaticon.com/512/751/751432.png",
             layout="wide",
             initial_sidebar_state="expanded"
         )
@@ -65,7 +64,7 @@ class UIComponents:
             Powered by TensorFlow and mathematical optimization.
             """)
         with col2:
-            st.metric("Status", "Ready", delta="✓")
+            st.metric("Status", "Ready")
 
     @staticmethod
     def render_sidebar_inputs() -> Tuple[List[str], float, str, bool, bool]:
