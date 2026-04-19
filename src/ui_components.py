@@ -11,7 +11,7 @@ class UIComponents:
         """Render application header."""
         st.set_page_config(
             page_title="Portfolio Optimizer",
-            page_icon="📊",
+            page_icon="https://cdn-icons-png.flaticon.com/512/751/751432.png",
             layout="wide",
             initial_sidebar_state="expanded"
         )
@@ -59,7 +59,7 @@ class UIComponents:
 
         col1, col2 = st.columns([3, 1])
         with col1:
-            st.title("🎯 Multi-Objective Portfolio Optimizer")
+            st.title("Multi-Objective Portfolio Optimizer")
             st.markdown("""
             Optimize your S&P 500 portfolio using advanced gradient descent techniques.
             Powered by TensorFlow and mathematical optimization.
@@ -81,7 +81,7 @@ class UIComponents:
             - reset_button: Boolean, True if clicked
         """
         with st.sidebar:
-            st.header("⚙️ Portfolio Parameters")
+            st.header("Portfolio Parameters")
 
             # Stock Selection
             st.subheader("1. Select Stocks")
@@ -96,9 +96,9 @@ class UIComponents:
             )
 
             if len(selected_tickers) < 2:
-                st.warning("⚠️ Please select at least 2 stocks")
+                st.warning("Please select at least 2 stocks")
             if len(selected_tickers) > 20:
-                st.error("❌ Maximum 20 stocks allowed")
+                st.error("Maximum 20 stocks allowed")
 
             # Risk Aversion Slider
             st.subheader("2. Risk Tolerance")
@@ -126,7 +126,7 @@ class UIComponents:
             )
 
             # Advanced Options (Collapsible)
-            with st.expander("⚙️ Advanced Options"):
+            with st.expander("Advanced Options"):
                 epochs = st.slider(
                     "Training Epochs:",
                     min_value=10,
@@ -152,20 +152,20 @@ class UIComponents:
 
             with col1:
                 optimize_button = st.button(
-                    "🚀 Optimize Portfolio",
+                    "Optimize Portfolio",
                     use_container_width=True,
                     type="primary"
                 )
 
             with col2:
                 reset_button = st.button(
-                    "🔄 Reset",
+                    "Reset",
                     use_container_width=True
                 )
 
             # Display parameters summary
             st.divider()
-            st.subheader("📋 Summary")
+            st.subheader("Summary")
             st.write(f"**Stocks Selected:** {len(selected_tickers)}")
             st.write(f"**Risk Aversion:** {risk_aversion:.2f}")
             st.write(f"**Strategy:** {optimization_case.split(':')[0]}")
@@ -175,7 +175,7 @@ class UIComponents:
     @staticmethod
     def render_data_preview(df: pd.DataFrame):
         """Render data preview table."""
-        st.subheader("📊 Data Preview")
+        st.subheader("Data Preview")
 
         col1, col2, col3 = st.columns(3)
         with col1:
@@ -191,21 +191,21 @@ class UIComponents:
     def render_optimization_status(status: str, progress: float = None):
         """Render optimization status."""
         if status == "running":
-            with st.spinner("⏳ Optimizing portfolio..."):
+            with st.spinner("Optimizing portfolio..."):
                 st.info("Running gradient descent algorithm...")
                 if progress is not None:
                     st.progress(progress)
         elif status == "completed":
-            st.success("✅ Optimization completed successfully!")
+            st.success("Optimization completed successfully!")
         elif status == "error":
-            st.error("❌ Error during optimization")
+            st.error("Error during optimization")
 
     @staticmethod
     def render_results_summary(weights: np.ndarray, tickers: List[str],
                               expected_return: float, portfolio_risk: float,
                               sharpe_ratio: float):
         """Render results summary metrics."""
-        st.subheader("📈 Portfolio Results")
+        st.subheader("Portfolio Results")
 
         col1, col2, col3, col4 = st.columns(4)
 
@@ -244,7 +244,7 @@ class UIComponents:
     @staticmethod
     def render_weights_table(weights: np.ndarray, tickers: List[str]):
         """Render portfolio weights as table."""
-        st.subheader("📋 Allocation Details")
+        st.subheader("Allocation Details")
 
         # Create DataFrame
         weights_df = pd.DataFrame({

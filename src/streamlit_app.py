@@ -28,13 +28,13 @@ def handle_optimization_errors(func):
         try:
             return func(*args, **kwargs)
         except ValueError as e:
-            st.error(f"❌ Input Error: {str(e)}")
+            st.error(f"Input Error: {str(e)}")
             logger.error(f"ValueError: {str(e)}")
         except MemoryError:
-            st.error("❌ Out of Memory: Try fewer stocks or shorter time periods")
+            st.error("Out of Memory: Try fewer stocks or shorter time periods")
             logger.error("MemoryError")
         except Exception as e:
-            st.error(f"❌ Unexpected Error: {str(e)}")
+            st.error(f"Unexpected Error: {str(e)}")
             logger.exception("Unexpected error")
             st.error(traceback.format_exc())
     return wrapper
@@ -99,7 +99,7 @@ def main():
 
     # Load data
     try:
-        with st.spinner("📥 Loading market data..."):
+        with st.spinner("Loading market data..."):
             data_loader = get_data_loader()
             returns_df = data_loader.load_and_prepare_data(selected_tickers)
         UIComponents.render_data_preview(returns_df)
@@ -162,7 +162,7 @@ def render_visualizations(weights: np.ndarray, tickers: list, history: list):
 
     with col1:
         # Pie Chart
-        st.subheader("🥧 Portfolio Allocation")
+        st.subheader("Portfolio Allocation")
 
         # Filter out zero weights
         mask = weights.flatten() > 0.001
@@ -188,7 +188,7 @@ def render_visualizations(weights: np.ndarray, tickers: list, history: list):
 
     with col2:
         # Bar Chart
-        st.subheader("📊 Weight Distribution")
+        st.subheader("Weight Distribution")
 
         weights_sorted_idx = np.argsort(weights.flatten())[::-1]
 
@@ -212,7 +212,7 @@ def render_visualizations(weights: np.ndarray, tickers: list, history: list):
 
     # Training History (if available)
     if history:
-        st.subheader("📉 Training History")
+        st.subheader("Training History")
 
         # Convert TensorFlow tensors to floats
         clean_history = [{k: float(np.array(v)) if not isinstance(v, (int, float)) else float(v) for k, v in h.items()} for h in history]
@@ -242,7 +242,7 @@ def render_advanced_visualizations(weights: np.ndarray,
     """Advanced visualization options."""
     import plotly.graph_objects as go
 
-    st.subheader("📊 Advanced Analytics")
+    st.subheader("Advanced Analytics")
 
     tabs = st.tabs(["Correlation Matrix", "Returns Distribution", "Risk-Return Scatter"])
 
@@ -294,7 +294,7 @@ def render_advanced_visualizations(weights: np.ndarray,
 def render_download_section(weights_df: pd.DataFrame, results: dict):
     """Render download options for results."""
     st.divider()
-    st.subheader("💾 Export Results")
+    st.subheader("Export Results")
 
     col1, col2 = st.columns(2)
 
@@ -302,7 +302,7 @@ def render_download_section(weights_df: pd.DataFrame, results: dict):
         # CSV Download
         csv_data = weights_df.to_csv(index=False)
         st.download_button(
-            label="📥 Download Weights (CSV)",
+            label="Download Weights (CSV)",
             data=csv_data,
             file_name="portfolio_weights.csv",
             mime="text/csv"
@@ -319,7 +319,7 @@ def render_download_section(weights_df: pd.DataFrame, results: dict):
         }, indent=4)
 
         st.download_button(
-            label="📥 Download Results (JSON)",
+            label="Download Results (JSON)",
             data=json_data,
             file_name="portfolio_results.json",
             mime="application/json"
